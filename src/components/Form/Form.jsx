@@ -11,8 +11,8 @@ const Form = () => {
 
     const onSendData = useCallback(()=>{
         const data = {
-            city,
-            country,
+            city: 'dsadsa',
+            country: country,
         }
 
         console.log(data)
