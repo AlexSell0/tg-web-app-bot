@@ -37,7 +37,6 @@ bot.on('message', async (msg) => {
 
     if(msg?.web_app_data?.data){
         console.log('send')
-        console.log(msg?.web_app_data?.data.type_page)
         const data = JSON.parse(msg?.web_app_data?.data)
 
         if(data.type_page === 'form'){
@@ -53,6 +52,8 @@ bot.on('message', async (msg) => {
                 console.log(e)
             }
         }
+
+        console.log(data)
 
         if(data.type_page === 'card'){
             console.log(data)
