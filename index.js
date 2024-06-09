@@ -65,9 +65,21 @@ bot.on('message', async (msg) => {
 });
 
 
-app.post('/web-data', (req, res)=>{
-    console.log(req)
-    console.log(res)
+app.post('/web-data', async (req, res)=>{
+    const {body} = req
+
+    if(body.type_page){
+        let text = 'Вы сделали заказ: '
+
+        body.card.forEach(product=>{
+            text += `Товар: ${product.name} на сумму ${product.price}` + '\r\n'
+        })
+
+        await bot.sendMessage(chatId, text)
+
+    }
+    console.log(body)
+    // console.log(res)
 })
 
 const PORT = 8080

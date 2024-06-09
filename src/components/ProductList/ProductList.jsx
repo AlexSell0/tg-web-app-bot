@@ -4,7 +4,7 @@ import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 
 const ProductList = () => {
-    const {tg} = useTelegram()
+    const {tg, queryId} = useTelegram()
 
     const products = [
         {
@@ -77,7 +77,8 @@ const ProductList = () => {
     const onSendDataQuery = useCallback(()=>{
         const data = {
             card: [...card],
-            type_page: 'card'
+            type_page: 'card',
+            queryId: queryId
         }
 
         setTest(JSON.stringify(data))
