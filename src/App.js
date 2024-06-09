@@ -8,10 +8,15 @@ function App() {
         tg.ready();
     }, []);
 
+    let info = tg.initData
+
   return (
     <div className="App">
-
         <Header/>
+
+        <div className="container">
+            {info}
+        </div>
     </div>
   );
 }
