@@ -46,7 +46,6 @@ const ProductList = () => {
     ]
 
     const [card, setCard] = useState([])
-    const [test, setTest] = useState(['22222'])
 
     useEffect(()=>{
         if(!card.length){
@@ -81,8 +80,6 @@ const ProductList = () => {
             queryId
         }
 
-        setTest(JSON.stringify(data))
-
         fetch('http://localhost:8080/web-data', {
             method: 'post',
             headers: {
@@ -113,7 +110,6 @@ const ProductList = () => {
 
     return (
         <div>
-            {test}
             <div className={'product-list'}>
                 {
                     products ?

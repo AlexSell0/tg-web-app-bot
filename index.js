@@ -68,18 +68,41 @@ bot.on('message', async (msg) => {
 app.post('/web-data', async (req, res)=>{
     const {type_page, card, queryId} = req.body
 
-    console.log(queryId)
-    console.log(card)
-    console.log(type_page)
+    if(type_page && queryId){
+        let text = 'Вы сделали заказ: ' + '\r\n'
+        let price = 0
 
-    if(type_page){
-        let text = 'Вы сделали заказ: '
+        card.forEach(product=>{
+            text += `Товар: ${product.name} на сумму ${product.price} \r\n`
+            price += product.price
+        })
 
-        // card.forEach(product=>{
-        //     text += `Товар: ${product.name} на сумму ${product.price}`
-        // })
-        //
-        // await bot.answerWebAppQuery(queryId, text)
+        text += `Итого: ${price}`
+
+        try {
+            await bot.answerWebAppQuery(queryId, {
+                type: 'article',
+                id: queryId,
+                title: 'Успешная покупка',
+                input_message_content: {
+                    message_text: text
+                }
+            })
+
+            return res.status(200).json({})
+        }catch (e) {
+            await bot.answerWebAppQuery(queryId, {
+                type: 'article',
+                id: queryId,
+                title: 'Неуспех',
+                input_message_content: {
+                    message_text: 'Не удалось приобрести товар'
+                }
+            })
+
+            return res.status(500).json({})
+        }
+
 
     }
 
