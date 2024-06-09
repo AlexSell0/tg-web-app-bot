@@ -37,28 +37,34 @@ bot.on('message', async (msg) => {
 
     if(msg?.web_app_data?.data){
         console.log('send')
-        console.log(msg?.web_app_data?.data)
-        try {
-            const data = JSON.parse(msg?.web_app_data?.data)
-            console.log(data)
+        console.log(msg?.web_app_data?.data.type_page)
+        const data = JSON.parse(msg?.web_app_data?.data)
 
-            await bot.sendMessage(chatId, 'Спасибо за обратную связь')
-            await bot.sendMessage(chatId, `Ваша страна: ${data?.country}`)
-            await bot.sendMessage(chatId, `Ваш город: ${data?.city}`)
+        if(data.type_page === 'form'){
+            try {
+                await bot.sendMessage(chatId, 'Спасибо за обратную связь')
+                await bot.sendMessage(chatId, `Ваша страна: ${data?.country}`)
+                await bot.sendMessage(chatId, `Ваш город: ${data?.city}`)
 
-            setTimeout(async ()=>{
-                await bot.sendMessage(chatId, `Всю информацию вы будете получать в этом чате`)
-            }, 3000)
-        }catch (e) {
-            console.log(e)
+                setTimeout(async ()=>{
+                    await bot.sendMessage(chatId, `Всю информацию вы будете получать в этом чате`)
+                }, 3000)
+            }catch (e) {
+                console.log(e)
+            }
         }
+
+        if(data.type_page === 'card'){
+            console.log(data)
+        }
+
     }else{
         console.log('errr')
         console.log(msg)
     }
 
     if(msg){
-        console.log(msg)
+        console.log(msg.web_app_data.data)
     }
 
 

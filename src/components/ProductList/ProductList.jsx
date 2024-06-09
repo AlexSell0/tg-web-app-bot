@@ -75,7 +75,7 @@ const ProductList = () => {
 
     const onSendData = useCallback(()=>{
         const data = {
-            card,
+            card: card,
             type_page: 'card'
         }
 
@@ -89,6 +89,17 @@ const ProductList = () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData]);
+
+    useEffect(() => {
+        let price = 0
+        card.forEach(product => {
+            price += product.price
+        })
+
+        tg.MainButton.setParams({
+            text: 'Купить товары на сумму: ' + price
+        })
+    }, [card]);
 
     return (
         <div>
