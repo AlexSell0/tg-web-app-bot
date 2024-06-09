@@ -44,7 +44,7 @@ bot.on('message', async (msg) => {
             await bot.sendMessage(chatId, `Ваш город: ${data?.city}`)
 
             setTimeout(async ()=>{
-                await bot.sendMessage(`Всю информацию вы будете получать в этом чате`)
+                await bot.sendMessage(chatId, `Всю информацию вы будете получать в этом чате`)
             }, 3000)
         }catch (e) {
             console.log(e)
