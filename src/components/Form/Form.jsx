@@ -9,7 +9,7 @@ const Form = () => {
 
     const {tg} = useTelegram()
 
-    const onSendData = useCallback((country, city, party)=>{
+    const onSendData = useCallback(()=>{
         const data = {
             city: 'dsadsa',
             country: country,
@@ -26,7 +26,7 @@ const Form = () => {
         return ()=>{
             tg.offEvent('mainButtonClicked', onSendData)
         }
-    }, []);
+    }, [onSendData]);
 
     useEffect(() => {
         tg.MainButton.setParams({
