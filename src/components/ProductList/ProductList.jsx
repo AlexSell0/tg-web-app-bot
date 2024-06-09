@@ -43,14 +43,31 @@ const ProductList = () => {
     ]
 
     return (
-        <div className={'product-list'}>
-            {
-                products ?
-                    products.map((product) =>
-                        <ProductItem product={product} key={product.id}/>
-                    )
-                    : ''
-            }
+        <div>
+            <div className={'product-list'}>
+                {
+                    products ?
+                        products.map((product) =>
+                            <ProductItem product={product} key={product.id}/>
+                        )
+                        : ''
+                }
+            </div>
+
+
+            <div className="btn btn-color-scheme">var(--tg-color-scheme)</div>
+            <div className="btn btn-theme-bg-color">var(--tg-theme-bg-color)</div>
+            <div className="btn btn-theme-text-color">var(--tg-theme-text-color)</div>
+            <div className="btn btn-theme-hint-color">var(--tg-theme-hint-color)</div>
+            <div className="btn btn-theme-button-color">var(--tg-theme-button-color)</div>
+            <div className="btn btn-theme-button-text-color">var(--tg-theme-button-text-color)</div>
+            <div className="btn btn-theme-secondary-bg-color">var(--tg-theme-secondary-bg-color)</div>
+            <div className="btn btn-theme-header-bg-color">var(--tg-theme-header-bg-color)</div>
+            <div className="btn btn-theme-accent-text-color">var(--tg-theme-accent-text-color)</div>
+            <div className="btn btn-theme-section-bg-color">var(--tg-theme-section-bg-color)</div>
+            <div className="btn btn-theme-section-header-text-color">var(--tg-theme-section-header-text-color)</div>
+            <div className="btn btn-theme-subtitle-text-color">var(--tg-theme-subtitle-text-color)</div>
+            <div className="btn btn-theme-destructive-text-color">var(--tg-theme-destructive-text-color)</div>
         </div>
     );
 };

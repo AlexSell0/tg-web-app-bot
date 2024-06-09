@@ -1,18 +1,18 @@
 .card{
-    border: 1px solid var(--tg-color-scheme);
+    border: 1px solid var(--tg-theme-button-color);
     padding: 5px;
     border-radius: 2px;
+    color: var(--tg-theme-text-color);
 }
 
 .card__image{
     width: 100%;
     height: 150px;
-    background-color: var(--tg-color-scheme);
+    background-color: var(--tg-theme-button-color);
     margin-bottom: 5px;
 }
 
 .card__header{
-    color: var(--tg-color-scheme);
     margin-bottom: 5px;
 }
 

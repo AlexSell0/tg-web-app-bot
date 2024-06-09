@@ -3,3 +3,64 @@
     grid-template-columns: repeat(2, calc(50% - 5px));
     gap: 10px;
 }
+
+.btn{
+    width: 100%;
+    height: 50px;
+}
+
+.btn-color-scheme{
+    background-color: var(--tg-color-scheme);
+}
+
+.btn-theme-bg-color{
+    background-color: var(--tg-theme-bg-color);
+}
+
+.btn-theme-text-color{
+    background-color: var(--tg-theme-text-color);
+}
+
+.btn-theme-hint-color{
+    background-color: var(--tg-theme-hint-color);
+}
+
+.btn-theme-link-color{
+    background-color: var(--tg-theme-link-color);
+}
+
+.btn-theme-button-color{
+    background-color: var(--tg-theme-button-color);
+}
+
+.btn-theme-button-color{
+    background-color: var(--tg-theme-button-text-color);
+}
+
+.btn-theme-secondary-bg-color{
+    background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.btn-theme-header-bg-color{
+    background-color: var(--tg-theme-header-bg-color);
+}
+
+.btn-theme-accent-text-color{
+    background-color: var(--tg-theme-accent-text-color);
+}
+
+.btn-theme-section-bg-color{
+    background-color: var(--tg-theme-section-bg-color);
+}
+
+.btn-theme-section-header-text-color{
+    background-color: var(--tg-theme-section-header-text-color);
+}
+
+.btn-theme-subtitle-text-color{
+    background-color: var(--tg-theme-subtitle-text-color);
+}
+
+.btn-theme-destructive-text-color{
+    background-color: var(--tg-theme-destructive-text-color);
+}
