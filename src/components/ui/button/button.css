@@ -1,8 +1,16 @@
 .button{
     padding: 10px 15px;
     background-color: var(--tg-theme-button-color);
-    color: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.btn.button{
+    width: 100%;
+}
+
+.button.active{
+    background-color: #00dd00;
 }
