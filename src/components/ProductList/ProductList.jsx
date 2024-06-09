@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './ProductList.css'
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
@@ -72,6 +72,22 @@ const ProductList = () => {
 
         return index >=0 ? 'active' : ''
     }
+
+    const onSendData = useCallback(()=>{
+        const data = {
+            card: card
+        }
+
+        tg.sendData(JSON.stringify(data))
+    }, [card])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+
+        return ()=>{
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData]);
 
     return (
         <div>
