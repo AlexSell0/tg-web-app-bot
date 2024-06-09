@@ -80,7 +80,7 @@ const ProductList = () => {
             type_page: 'card'
         }
 
-        setTest('111111111111111')
+        setTest(JSON.stringify(data))
 
         tg.sendData(JSON.stringify(data))
     }, [card])
