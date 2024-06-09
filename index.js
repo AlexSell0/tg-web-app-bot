@@ -35,8 +35,9 @@ bot.on('message', async (msg) => {
         });
     }
 
-    if(msg?.web_app_data?.data?.form){
+    if(msg?.web_app_data?.data){
         console.log('send')
+        console.log(msg?.web_app_data?.data)
         try {
             const data = JSON.parse(msg?.web_app_data?.data)
             console.log(data)

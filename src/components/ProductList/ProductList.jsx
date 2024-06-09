@@ -75,7 +75,8 @@ const ProductList = () => {
 
     const onSendData = useCallback(()=>{
         const data = {
-            card: card
+            card,
+            type_page: 'card'
         }
 
         tg.sendData(JSON.stringify(data))
