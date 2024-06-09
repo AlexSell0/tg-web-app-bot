@@ -7,12 +7,16 @@ const Form = () => {
     const [country, setCountry] = useState('')
     const [party, setParty] = useState('')
 
+    const [test, setTest] = useState('')
+
     const {tg} = useTelegram()
 
     const onSendData = useCallback(()=>{
         const data = {
             city,country,party
         }
+
+        setTest('dsfdsfds')
 
         tg.sendDate(JSON.stringify(data))
     }, [])
@@ -42,7 +46,7 @@ const Form = () => {
     return (
         <div className={'container'}>
             <h3>Введите данные</h3>
-
+            <p>{test}</p>
             <form className={'form'}>
                 <div className={'form-control'}>
                     <span>Страна</span>
