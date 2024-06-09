@@ -9,7 +9,7 @@ const Form = () => {
 
     const {tg} = useTelegram()
 
-    const onSendData = useCallback(()=>{
+    const onSendData = useCallback((country, city, party)=>{
         const data = {
             city: 'dsadsa',
             country: country,
