@@ -47,6 +47,14 @@ const ProductList = () => {
 
     const [card, setCard] = useState([])
 
+    useEffect(()=>{
+        if(!card.length){
+            tg.MainButton.hide()
+        }else{
+            tg.MainButton.show()
+        }
+    },[card])
+
     function addProductToCard(product){
         const index = card.findIndex(el => el.id === product.id)
 
@@ -54,16 +62,8 @@ const ProductList = () => {
             const productsCard = card.filter(el => el.id !== product.id)
 
             setCard(productsCard)
-            console.log(111111111111111111)
         }else{
             setCard([...card, product])
-            console.log(2222222222222222222222222222)
-        }
-
-        if(!card.length){
-            tg.MainButton.hide()
-        }else{
-            tg.MainButton.show()
         }
     }
 
