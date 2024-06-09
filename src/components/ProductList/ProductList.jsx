@@ -46,6 +46,7 @@ const ProductList = () => {
     ]
 
     const [card, setCard] = useState([])
+    const [test, setTest] = useState(['22222'])
 
     useEffect(()=>{
         if(!card.length){
@@ -73,20 +74,22 @@ const ProductList = () => {
         return index >=0 ? 'active' : ''
     }
 
-    const onSendData = useCallback(()=>{
+    const onSendDataProduct = useCallback(()=>{
         const data = {
             card: card,
             type_page: 'card'
         }
 
+        setCard('111111111111111')
+
         tg.sendData(JSON.stringify(data))
     }, [card])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onSendDataProduct)
 
         return ()=>{
-            tg.offEvent('mainButtonClicked', onSendData)
+            tg.offEvent('mainButtonClicked', onSendDataProduct)
         }
     }, [onSendData]);
 
@@ -103,6 +106,7 @@ const ProductList = () => {
 
     return (
         <div>
+            {test}
             <div className={'product-list'}>
                 {
                     products ?
