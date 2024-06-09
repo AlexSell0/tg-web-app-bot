@@ -20,7 +20,7 @@ const Form = () => {
         setTest('dsfdsfds')
 
         tg.sendData(JSON.stringify(data))
-    }, [])
+    }, [country, city])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
