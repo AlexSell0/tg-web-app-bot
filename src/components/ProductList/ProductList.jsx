@@ -76,7 +76,7 @@ const ProductList = () => {
 
     const onSendDataProduct = useCallback(()=>{
         const data = {
-            card: card,
+            card: [...card],
             type_page: 'card'
         }
 
