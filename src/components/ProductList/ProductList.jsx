@@ -78,7 +78,7 @@ const ProductList = () => {
         const data = {
             card: [...card],
             type_page: 'card',
-            queryId: queryId
+            queryId
         }
 
         setTest(JSON.stringify(data))

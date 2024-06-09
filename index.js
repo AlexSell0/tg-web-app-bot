@@ -66,19 +66,23 @@ bot.on('message', async (msg) => {
 
 
 app.post('/web-data', async (req, res)=>{
-    const {body} = req
+    const {type_page, card, queryId} = req.body
 
-    if(body.type_page){
+    console.log(queryId)
+    console.log(card)
+    console.log(type_page)
+
+    if(type_page){
         let text = 'Вы сделали заказ: '
 
-        body.card.forEach(product=>{
-            text += `Товар: ${product.name} на сумму ${product.price}` + '\r\n'
-        })
-
-        await bot.sendMessage(chatId, text)
+        // card.forEach(product=>{
+        //     text += `Товар: ${product.name} на сумму ${product.price}`
+        // })
+        //
+        // await bot.answerWebAppQuery(queryId, text)
 
     }
-    console.log(body)
+
     // console.log(res)
 })
 
