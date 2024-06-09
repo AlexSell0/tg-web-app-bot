@@ -1,5 +1,7 @@
 
 const TelegramBot = require('node-telegram-bot-api');
+const express = require('express');
+const cors = require('cors');
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = '7470147033:AAGFtrD7AoJbS9-PRYGhAANIHhPAgU6CYzg';
@@ -11,6 +13,12 @@ const bot = new TelegramBot(token, {polling: true});
 
 // Listen for any kind of message. There are different kinds of
 // messages.
+
+//node app
+const app = express();
+app.use(express.json())
+app.use(cors())
+
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
 
@@ -53,20 +61,16 @@ bot.on('message', async (msg) => {
             }
         }
 
-        console.log(data)
-
-        if(data.type_page === 'card'){
-            console.log(data)
-        }
-
-    }else{
-        console.log('errr')
-        console.log(msg)
     }
-
-    if(msg){
-        console.log(msg.web_app_data.data)
-    }
-
-
 });
+
+
+app.post('/web-data', (req, res)=>{
+    console.log(req)
+    console.log(res)
+})
+
+const PORT = 8080
+app.listen(PORT, ()=>{
+    console.log('server run port: ' + PORT)
+})

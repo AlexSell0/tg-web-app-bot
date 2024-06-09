@@ -74,7 +74,7 @@ const ProductList = () => {
         return index >=0 ? 'active' : ''
     }
 
-    const onSendDataProduct = useCallback(()=>{
+    const onSendDataQuery = useCallback(()=>{
         const data = {
             card: [...card],
             type_page: 'card'
@@ -82,16 +82,22 @@ const ProductList = () => {
 
         setTest(JSON.stringify(data))
 
-        tg.sendData(JSON.stringify(data))
+        fetch('http://localhost:8080/web-data', {
+            method: 'post',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
     }, [card])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendDataProduct)
+        tg.onEvent('mainButtonClicked', onSendDataQuery)
 
         return ()=>{
-            tg.offEvent('mainButtonClicked', onSendDataProduct)
+            tg.offEvent('mainButtonClicked', onSendDataQuery)
         }
-    }, [onSendDataProduct]);
+    }, [onSendDataQuery]);
 
     useEffect(() => {
         let price = 0
