@@ -13,12 +13,13 @@ const Form = () => {
 
     const onSendData = useCallback(()=>{
         const data = {
-            city,country,party
+            city,
+            country,
         }
 
         setTest('dsfdsfds')
 
-        tg.sendDate(JSON.stringify(data))
+        tg.sendData(JSON.stringify(data))
     }, [])
 
     useEffect(() => {

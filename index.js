@@ -52,7 +52,12 @@ bot.on('message', async (msg) => {
             console.log(e)
         }
     }else{
-        console.log('errrrrrr')
+        console.log('errr')
+        console.log(msg)
+    }
+
+    if(msg){
+        console.log(msg)
     }
 
 
