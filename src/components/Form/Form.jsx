@@ -7,8 +7,6 @@ const Form = () => {
     const [country, setCountry] = useState('')
     const [party, setParty] = useState('')
 
-    const [test, setTest] = useState('')
-
     const {tg} = useTelegram()
 
     const onSendData = useCallback(()=>{
@@ -17,10 +15,10 @@ const Form = () => {
             country,
         }
 
-        setTest('dsfdsfds')
+        console.log(data)
 
         tg.sendData(JSON.stringify(data))
-    }, [country, city])
+    }, [country, city, party])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -44,21 +42,28 @@ const Form = () => {
         }
     }, [country, city]);
 
+    function setCountryValue(event){
+        setCountry(event.target.value)
+    }
+
+    function setCityValue(event){
+        setCity(event.target.value)
+    }
+
     return (
         <div className={'container'}>
             <h3>Введите данные</h3>
-            <p>{test}</p>
-            <form className={'form'}>
+            <form onSubmit={()=>onSendData} className={'form'}>
                 <div className={'form-control'}>
                     <span>Страна</span>
                     <input type="text" value={country} placeholder={'Страна'}
-                           onInput={(event) => setCountry(event.target.value)}/>
+                           onInput={(event) => setCountryValue(event)}/>
                 </div>
 
                 <div className={'form-control'}>
                     <span>Город</span>
                     <input type="text" value={city} placeholder={'Страна'}
-                           onInput={(event) => setCity(event.target.value)}/>
+                           onInput={(event) => setCityValue(event)}/>
                 </div>
 
                 <select value={party} onChange={(event)=>setParty(event.target.value)}>
