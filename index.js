@@ -4,7 +4,7 @@ const TelegramBot = require('node-telegram-bot-api');
 // replace the value below with the Telegram token you receive from @BotFather
 const token = '7470147033:AAGFtrD7AoJbS9-PRYGhAANIHhPAgU6CYzg';
 
-webAppUrl = 'https://main--test-tg-bot-alex-sell.netlify.app/'
+webAppUrl = 'https://main--test-tg-bot-alex-sell.netlify.app'
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
@@ -17,6 +17,14 @@ bot.on('message', async (msg) => {
     const text = msg.text
 
     if(text === '/start'){
+        await bot.sendMessage(chatId, 'Ниже появится кнопка заполни форму', {
+            reply_markup: {
+                keyboard: [
+                    [{text: 'Заполнить форму', web_app: {url: webAppUrl + '/form'}}]
+                ]
+            }
+        });
+
         // send a message to the chat acknowledging receipt of their message
         await bot.sendMessage(chatId, 'Ниже появится кнопка заполни форму', {
             reply_markup: {
