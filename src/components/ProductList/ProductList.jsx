@@ -91,7 +91,7 @@ const ProductList = () => {
         return ()=>{
             tg.offEvent('mainButtonClicked', onSendDataProduct)
         }
-    }, [onSendData]);
+    }, [onSendDataProduct]);
 
     useEffect(() => {
         let price = 0
