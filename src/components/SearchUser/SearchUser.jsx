@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {useTelegram} from "../../hooks/useTelegram";
 const SearchUser = () => {
+    const {tg} = useTelegram()
+
     const [q, SetQ] = useState('')
 
     function searchQuery(){

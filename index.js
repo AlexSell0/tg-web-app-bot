@@ -59,6 +59,8 @@ bot.on('message', async (msg) => {
             }catch (e) {
                 console.log(e)
             }
+        }else if(data.type_page === 'search'){
+            console.log(data)
         }
 
     }
