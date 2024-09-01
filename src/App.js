@@ -6,6 +6,7 @@ import {Route, Routes} from "react-router-dom";
 import ProductList from "./components/ProductList/ProductList";
 import form from "./components/Form/Form";
 import Form from "./components/Form/Form";
+import SearchUser from "./components/SearchUser/SearchUser";
 
 function App() {
     const {tg, onToggleTelegram} = useTelegram()
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
         <Header/>
+        <SearchUser/>
 
         <Routes>
             <Route index element={<ProductList/>}/>
