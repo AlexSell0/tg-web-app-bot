@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useTelegram} from "../../hooks/useTelegram";
 const SearchUser = () => {
-    const {tg} = useTelegram()
+    const {tg, queryId} = useTelegram()
 
     const [q, SetQ] = useState('')
 
@@ -11,7 +11,7 @@ const SearchUser = () => {
         }
 
         let data = {
-            q,
+            q, queryId,
             type_page: 'search'
         }
 

@@ -117,6 +117,25 @@ app.post('/web-data', async (req, res)=>{
 app.post('/search-user', async (req, res)=>{
     const {type_page, q} = req.body
 
+    try {
+        await bot.answerWebAppQuery(q, {
+            type: 'article',
+            id: q,
+            title: 'Успешная покупка',
+        })
+
+        return res.status(200).json({})
+    }catch (e) {
+        await bot.answerWebAppQuery(q, {
+            type: 'article',
+            title: 'Неуспех',
+            input_message_content: {
+                message_text: 'Не удалось приобрести товар'
+            }
+        })
+
+        return res.status(500).json({})
+    }
     console.log(type_page)
     console.log(q)
 })
