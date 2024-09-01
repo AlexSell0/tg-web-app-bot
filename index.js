@@ -20,6 +20,7 @@ app.use(express.json())
 app.use(cors())
 
 bot.on('message', async (msg) => {
+
     const chatId = msg.chat.id;
 
     const text = msg.text
@@ -48,6 +49,7 @@ bot.on('message', async (msg) => {
         const data = JSON.parse(msg?.web_app_data?.data)
 
         if(data.type_page === 'form'){
+            console.log(data)
             try {
                 await bot.sendMessage(chatId, 'Спасибо за обратную связь')
                 await bot.sendMessage(chatId, `Ваша страна: ${data?.country}`)
@@ -59,7 +61,7 @@ bot.on('message', async (msg) => {
             }catch (e) {
                 console.log(e)
             }
-        }else if(data.type_page === 'search'){
+        }else{
             console.log(data)
         }
 
@@ -68,6 +70,7 @@ bot.on('message', async (msg) => {
 
 
 app.post('/web-data', async (req, res)=>{
+
     const {type_page, card, queryId} = req.body
 
     if(type_page && queryId){
@@ -109,6 +112,13 @@ app.post('/web-data', async (req, res)=>{
     }
 
     // console.log(res)
+})
+
+app.post('/search-user', async (req, res)=>{
+    const {type_page, q} = req.body
+
+    console.log(type_page)
+    console.log(q)
 })
 
 const PORT = 8080

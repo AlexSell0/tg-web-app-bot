@@ -15,7 +15,13 @@ const SearchUser = () => {
             type_page: 'search'
         }
 
-        tg.sendData(JSON.stringify(data))
+        fetch('http://localhost:8080/search-user', {
+            method: 'post',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
     }
 
     return (
